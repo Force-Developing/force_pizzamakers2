@@ -21,13 +21,15 @@ Citizen.CreateThread(function()
 	end
   
 	while true do
-	  Citizen.Wait(5)
+	  local sleep = 500
   
-	  if IsControlJustPressed(0, 167) then
-		if PlayerData.job ~= nil and PlayerData.job.name == 'salims' then
+	 if PlayerData.job ~= nil and PlayerData.job.name == 'salims' then
+		sleep = 0
+	  	if IsControlJustPressed(0, 167) then
 		  F6MenuMadeByForceYeye()
 		end
 	  end
+	  Wait(sleep)
 	end
   end)
 
@@ -49,7 +51,7 @@ Citizen.CreateThread(function()
 
 		if PlayerData.job ~= nil and PlayerData.job.name == 'salims' then
 
-			local player  = GetPlayerPed(-1)
+			local player  = PlayerPedId()
 			local pCoords = GetEntityCoords(player)
 			local dist1   = #(pCoords - Config.StartMarker)
 			local dist2	  = #(pCoords - Config.StashPos)
@@ -138,7 +140,7 @@ AddEventHandler('force_pizzamakerPizzaMaker1', function(chosenPizza, prop_name1,
 	while pizzaMakingIsStarted do
 		Citizen.Wait(7)
 
-	local player = GetPlayerPed(-1)
+	local player = PlayerPedId()
 	local pCoords = GetEntityCoords(player)
 	local dist1 = #(pCoords - Config.StartMarker)
 	local distFirstProccesMarker = #(pCoords - Config.FirstProccesMarker)
