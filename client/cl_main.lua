@@ -49,7 +49,7 @@ Citizen.CreateThread(function()
 
 		if PlayerData.job ~= nil and PlayerData.job.name == 'salims' then
 
-			local player  = GetPlayerPed(-1)
+			local player  = PlayerPedId()
 			local pCoords = GetEntityCoords(player)
 			local dist1   = #(pCoords - Config.StartMarker)
 			local dist2	  = #(pCoords - Config.StashPos)
@@ -138,7 +138,7 @@ AddEventHandler('force_pizzamakerPizzaMaker1', function(chosenPizza, prop_name1,
 	while pizzaMakingIsStarted do
 		Citizen.Wait(7)
 
-	local player = GetPlayerPed(-1)
+	local player = PlayerPedId()
 	local pCoords = GetEntityCoords(player)
 	local dist1 = #(pCoords - Config.StartMarker)
 	local distFirstProccesMarker = #(pCoords - Config.FirstProccesMarker)
